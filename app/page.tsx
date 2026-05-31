@@ -197,7 +197,7 @@ function Envelope({ onOpen }: EnvelopeProps) {
         onMouseLeave={()=>setHover(false)}
         style={{
           position:'relative', zIndex:10, 
-          width: 'min(580px, 94vw)',   // ← Agrandie
+          width: 'min(460px, 92vw)',   // ← Agrandie
           cursor: opening ? 'default' : 'pointer',
           opacity: envOp, 
           transform: hover&&!opening ? 'translateY(-6px) scale(1.01)' : 'translateY(0) scale(1)',
@@ -293,8 +293,8 @@ function Envelope({ onOpen }: EnvelopeProps) {
       </div>
 
       {/* date */}
-      <div style={{ marginTop:36, textAlign:'center', zIndex:2, position:'relative', opacity:envOp, transition:'opacity 0.5s' }}>
-        <p style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:20, fontWeight:300, color:MUTED, letterSpacing:'5px', margin:0 }}>
+      <div style={{ marginTop:32, textAlign:'center', zIndex:2, position:'relative', opacity:envOp, transition:'opacity 0.5s' }}>
+        <p style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:19, fontWeight:300, color:MUTED, letterSpacing:'5px', margin:0 }}>
           27 · 06 · 2026
         </p>
         
@@ -404,7 +404,8 @@ function WeddingPage() {
   ];
 
   return (
-    <div style={{ background:CREAM, color:INK, fontFamily:"'DM Sans',sans-serif", opacity:visible?1:0, transition:'opacity 0.9s ease' }}>
+    <div style={{ background:CREAM, color:INK, fontFamily:"'DM Sans',sans-serif", opacity:visible?1:0, transition:'opacity 0.9s ease',maxWidth: '100vw',
+      overflowX: 'hidden' }}>
 
       {/* ── NAV ── */}
       <nav style={{
@@ -412,14 +413,14 @@ function WeddingPage() {
         padding: navScrolled ? '12px 44px' : '22px 44px',
         background: navScrolled ? 'rgba(159, 151, 238, 0.97)' : 'transparent',
         backdropFilter: navScrolled ? 'blur(14px)' : 'none',
-        borderBottom: navScrolled ? `1px solid ${BORDER}` : 'none',
+        borderBottom: navScrolled ? `1px solid ${BORDER}`:'none',
         transition:'all 0.35s',
         display:'flex', alignItems:'center', justifyContent:'space-between',
       }}>
         <span style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:22, fontWeight:400, color:INK, letterSpacing:'0.04em' }}>
           B<span style={{color:G1}}>&amp; </span>R
         </span>
-        <div style={{ display:'flex', gap:32, alignItems:'center' }}>
+        <div style={{ display:'flex', gap:18, alignItems:'center' }}>
           {navLinks.map(l=>(
             <button key={l.id} onClick={()=>scrollTo(l.id)}
               style={{
@@ -674,9 +675,8 @@ function WeddingPage() {
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:28 }}>
             {[
               { title:'Tenue de soirée', icon:'✦', color:ROSE,
-                content:"Tenue de soirée recommandée. Tons : champagne, ivoire, bleu nuit ou bordeaux. Merci d'éviter le blanc." },
-              { title:'Hébergement',     icon:'◎', color:BLUE,
-                content:'Plusieurs hôtels à proximité de Zaghouan. Contactez-nous pour les recommandations.' },
+                content:"Tenue de soirée recommandée. Merci d'éviter le blanc." },
+             
               { title:'Accès & Parking', icon:'◷', color:SAGE,
                 content:'À 60 km de Tunis. Parking gratuit sur place. Navette disponible sur demande.' },
               { title:'Cadeaux',         icon:'♦', color:G1,
