@@ -656,8 +656,8 @@ function WeddingPage() {
           </FadeIn>
 
           <div style={{ display:'grid', gridTemplateColumns:'2fr 1fr 1fr', gridTemplateRows:'220px 220px', gap:6, borderRadius:8, overflow:'hidden' }}>
-            <VenuePhoto src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80" alt="Salle principale" style={{ height:200, borderRadius:12, marginBottom:32, boxShadow:'0 20px 80px rgba(0,0,0,0.18)' }}/><br></br>
-            <VenuePhoto src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Décoration"  style={{ height:200, borderRadius:12, marginBottom:32, boxShadow:'0 20px 80px rgba(0,0,0,0.18)' }}/>
+            <div style={{ display:'flex', justifyContent:'center', marginBottom:40 }}> <VenuePhoto src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80" alt="Salle principale" style={{ height:200,width:200, borderRadius:12, marginBottom:32, boxShadow:'0 20px 80px rgba(0,0,0,0.18)',textAlign:'center' }}/><br></br></div>
+            <div style={{ display:'flex', justifyContent:'center', marginBottom:40 }}><VenuePhoto src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Décoration"  style={{ height:200,width:200, borderRadius:12, marginBottom:32, boxShadow:'0 20px 80px rgba(0,0,0,0.18)',textAlign:'center' }}/></div>
             
            
           </div>
@@ -668,36 +668,49 @@ function WeddingPage() {
       <div style={{ height:5, background:`linear-gradient(to right,${BLUE},${SAGE},${G1},${ROSE},${G2},${BLUE})` }}/>
 
       {/* ── INFOS PRATIQUES ── */}
-      <section style={{ padding:'108px 32px', background:CREAM }}>
-        <div style={{ maxWidth:920, margin:'0 auto' }}>
-          <FadeIn><SectionTitle sub="Informations pratiques">Tout ce qu'il faut savoir</SectionTitle></FadeIn>
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:19 }}>
-            {[
-              { title:'Tenue de soirée', icon:'✦', color:ROSE,
-                content:"Tenue de soirée recommandée. Merci d'éviter le blanc." },
-             
-              { title:'Accès & Parking', icon:'◷', color:SAGE,
-                content:'À 60 km de Tunis. Parking gratuit sur place. Navette disponible sur demande.' },
-              { title:'Cadeaux',         icon:'♦', color:G1,
-                content:'Votre présence est le plus beau des cadeaux. Une liste est disponible sur demande.' },
-            ].map((card,i)=>(
-              <FadeIn key={i} delay={i*0.1}>
-                <div style={{
-                  padding:'36px 32px',
-                  background:`linear-gradient(145deg,white,${STONE})`,
-                  borderRadius:8, border:`1px solid ${BORDER}`,
-                  borderLeft:`4px solid ${card.color}`,
-                  boxShadow:'0 4px 20px rgba(207, 188, 188, 0.06)',
-                }}>
-                  <span style={{ color:card.color, fontSize:22 }}>{card.icon}</span>
-                  <h3 style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:26, fontWeight:500, color:INK, margin:'12px 0' }}>{card.title}</h3>
-                  <p style={{ fontSize:14, color:MUTED, lineHeight:1.75, margin:0 }}>{card.content}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>///je veux diminuer la taille de ces informations car quelques ecriture est copée car l'ecran du telephone plus petite
-        </div>
-      </section>
+<section style={{ padding:'80px 20px', background:CREAM }}>
+  <div style={{ maxWidth:920, margin:'0 auto' }}>
+    <FadeIn><SectionTitle sub="Informations pratiques">Tout ce qu'il faut savoir</SectionTitle></FadeIn>
+    
+    <div style={{ display:'grid', gridTemplateColumns:'1fr', gap:18 }}>   {/* Changé en 1 colonne par défaut */}
+      {[
+        { title:'Tenue de soirée', icon:'✦', color:ROSE,
+          content:"Tenue de soirée recommandée. Merci d'éviter le blanc." },
+       
+        { title:'Accès & Parking', icon:'◷', color:SAGE,
+          content:'À 60 km de Tunis. Parking gratuit sur place. Navette disponible sur demande.' },
+        { title:'Cadeaux',         icon:'♦', color:G1,
+          content:'Votre présence est le plus beau des cadeaux. Une liste est disponible sur demande.' },
+      ].map((card,i)=>(
+        <FadeIn key={i} delay={i*0.1}>
+          <div style={{
+            padding:'28px 24px',           // ← Padding réduit
+            background:`linear-gradient(145deg,white,${STONE})`,
+            borderRadius:10, 
+            border:`1px solid ${BORDER}`,
+            borderLeft:`5px solid ${card.color}`,
+            boxShadow:'0 4px 20px rgba(0,0,0,0.06)',
+          }}>
+            <span style={{ color:card.color, fontSize:26, display:'block', marginBottom:12 }}>{card.icon}</span>
+            <h3 style={{ 
+              fontFamily:"'Cormorant Garamond',serif", 
+              fontSize:22,                    // ← Taille réduite
+              fontWeight:500, 
+              color:INK, 
+              margin:'0 0 10px' 
+            }}>{card.title}</h3>
+            <p style={{ 
+              fontSize:13.5,                  // ← Texte plus petit
+              color:MUTED, 
+              lineHeight:1.65, 
+              margin:0 
+            }}>{card.content}</p>
+          </div>
+        </FadeIn>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ── RSVP ── */}
       <section id="rsvp" style={{
