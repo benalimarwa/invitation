@@ -660,7 +660,6 @@ function WeddingPage() {
             <VenuePhoto src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Décoration"  style={{ height:80, borderRadius:12, marginBottom:32, boxShadow:'0 20px 80px rgba(0,0,0,0.18)' }}/>
             
            
-            <VenuePhoto src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" alt="Jardins" style={{gridRow:'1/3'}}/>
           </div>
         </div>
       </section>
