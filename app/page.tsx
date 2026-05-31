@@ -695,7 +695,7 @@ function WeddingPage() {
                 </div>
               </FadeIn>
             ))}
-          </div>
+          </div>///je veux diminuer la taille de ces informations car quelques ecriture est copée car l'ecran du telephone plus petite
         </div>
       </section>
 
