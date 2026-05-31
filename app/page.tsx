@@ -656,8 +656,8 @@ function WeddingPage() {
           </FadeIn>
 
           <div style={{ display:'grid', gridTemplateColumns:'2fr 1fr 1fr', gridTemplateRows:'220px 220px', gap:6, borderRadius:8, overflow:'hidden' }}>
-            <VenuePhoto src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80" alt="Salle principale" style={{ gridRow:'1/3' }}/>
-            <VenuePhoto src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Décoration" style={{gridRow:'1/3'}}/>
+            <VenuePhoto src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80" alt="Salle principale" style={{ height:500, borderRadius:12, marginBottom:32, boxShadow:'0 20px 80px rgba(0,0,0,0.18)' }}/>
+            <VenuePhoto src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Décoration"  style={{ height:500, borderRadius:12, marginBottom:32, boxShadow:'0 20px 80px rgba(0,0,0,0.18)' }}/>
             
            
             <VenuePhoto src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" alt="Jardins" style={{gridRow:'1/3'}}/>
