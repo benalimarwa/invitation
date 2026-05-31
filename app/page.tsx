@@ -1,5 +1,6 @@
 'use client';
 
+import { TextAlignCenter } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 
 /*
@@ -8,19 +9,19 @@ import React, { useState, useEffect, useRef } from 'react';
 */
 
 // ── Palette ──────────────────────────────────────────────
-const G1     = '#6d4808';   // gold dark
-const G2     = '#D4AF71';   // gold light
-const G3     = '#F0D9A0';   // gold pale
-const ROSE   = '#795f0c';   // terracotta rose accent
+const G1     = '#073670';   // gold dark
+const G2     = '#20236b';   // gold light
+const G3     = '#af90dd';   // gold pale
+const ROSE   = '#557bdb';   // terracotta rose accent
 const SAGE   = '#7A9E8A';   // sage green accent
-const BLUE   = '#6B8CAE';   // dusty blue accent
-const CREAM  = '#FAF7F2';
-const STONE  = '#F2EBE0';
-const STONE2 = '#E8DECE';
-const INK    = '#6544c6';
-const INK2   = '#4A3E30';
-const MUTED  = '#8C7B65';
-const BORDER = '#DDD0BC';
+const BLUE   = '#99bde1';   // dusty blue accent
+const CREAM  = '#ddd9cd';
+const STONE  = '#635e9a';
+const STONE2 = '#e7e3c4';
+const INK    = '#193b59';
+const INK2   = '#08121c';
+const MUTED  = '#0a284f';
+const BORDER = '#070a17';
 
 // ── Types ─────────────────────────────────────────────────
 interface PetalProps        { x:string; y:string; size:number; rotate:number; opacity:number; color?:string; }
@@ -180,7 +181,7 @@ function Envelope({ onOpen }: EnvelopeProps) {
           Vous êtes cordialement invités
         </p>
         <h1 style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:'clamp(30px,7vw,56px)', fontWeight:300, color:INK, margin:0, lineHeight:1.15 }}>
-          Iheb <span style={{ color:G1, fontStyle:'italic' }}>&amp;</span> Marwa
+          Bechir <span style={{ color:G1, fontStyle:'italic' }}>&amp;</span> Roua
         </h1>
         <div style={{ display:'flex', gap:16, justifyContent:'center', marginTop:14 }}>
           <span style={{ width:8, height:8, borderRadius:'50%', background:ROSE, display:'inline-block', opacity:0.7 }}/>
@@ -195,12 +196,12 @@ function Envelope({ onOpen }: EnvelopeProps) {
         onMouseEnter={()=>setHover(true)}
         onMouseLeave={()=>setHover(false)}
         style={{
-          position:'relative', zIndex:10, width:'min(400px,90vw)',
+          position:'relative', zIndex:10, 
+          width: 'min(580px, 94vw)',   // ← Agrandie
           cursor: opening ? 'default' : 'pointer',
-          opacity: envOp, transition:'opacity 0.4s',
+          opacity: envOp, 
           transform: hover&&!opening ? 'translateY(-6px) scale(1.01)' : 'translateY(0) scale(1)',
-          transitionProperty:'transform,opacity',
-          transitionDuration:'0.35s,0.4s',
+          transition:'all 0.35s',
         }}
       >
         {/* peeking card */}
@@ -221,9 +222,9 @@ function Envelope({ onOpen }: EnvelopeProps) {
           <div style={{ position:'absolute', top:0, left:'15%', right:'15%', height:3, background:`linear-gradient(to right,${ROSE},${G1},${SAGE})`, borderRadius:'0 0 3px 3px' }}/>
           <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:9, letterSpacing:'5px', textTransform:'uppercase', color:G1, margin:'12px 0 0' }}>Faire-part de mariage</p>
           <div style={{ margin:'14px 0 10px', width:36, height:1, background:G1 }}/>
-          <p style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:30, fontWeight:400, color:INK, lineHeight:1.25, margin:0 }}>Iheb<br/><span style={{ fontStyle:'italic', color:G1 }}>&amp; Marwa</span></p>
+          <p style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:30, fontWeight:400, color:INK, lineHeight:1.25, margin:0 }}>Bechir<br/><span style={{ fontStyle:'italic', color:G1 }}>&amp; Roua</span></p>
           <div style={{ margin:'10px 0 14px', width:36, height:1, background:G1 }}/>
-          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:MUTED, letterSpacing:'3px' }}>17 · 06 · 2028</p>
+          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:MUTED, letterSpacing:'3px' }}>27 · 06 · 2026</p>
           <div style={{ display:'flex', gap:10, marginTop:14 }}>
             {[ROSE, G1, SAGE, BLUE].map((c,i)=>(
               <div key={i} style={{ width:6, height:6, borderRadius:'50%', background:c, opacity:0.6 }}/>
@@ -234,7 +235,7 @@ function Envelope({ onOpen }: EnvelopeProps) {
         {/* envelope body */}
         <div style={{
           position:'relative', paddingTop:'80%', borderRadius:8,
-          boxShadow: hover&&!opening ? '0 28px 70px rgba(44,36,23,0.22)' : '0 10px 40px rgba(44,36,23,0.14)',
+          boxShadow: hover&&!opening ? '0 28px 70px rgba(210, 191, 159, 0.22)' : '0 10px 40px rgba(189, 182, 172, 0.14)',
           transition:'box-shadow 0.35s', overflow:'hidden',
         }}>
           {/* body */}
@@ -244,9 +245,9 @@ function Envelope({ onOpen }: EnvelopeProps) {
           {/* bottom inside triangle */}
           <div style={{ position:'absolute', bottom:0, left:0, right:0, height:'54%', background:'linear-gradient(165deg,#EDE0C5,#E0CDA8)', clipPath:'polygon(0% 100%,50% 0%,100% 100%)' }}/>
           {/* left flap */}
-          <div style={{ position:'absolute', bottom:0, left:0, width:'53%', height:'60%', background:'linear-gradient(140deg,#E8DABC,#D9C89A)', clipPath:'polygon(0% 100%,0% 0%,100% 100%)' }}/>
+          <div style={{ position:'absolute', bottom:0, left:0, width:'73%', height:'60%', background:'linear-gradient(140deg,#E8DABC,#D9C89A)', clipPath:'polygon(0% 100%,0% 0%,100% 100%)' }}/>
           {/* right flap */}
-          <div style={{ position:'absolute', bottom:0, right:0, width:'53%', height:'60%', background:'linear-gradient(220deg,#E8DABC,#D9C89A)', clipPath:'polygon(100% 100%,100% 0%,0% 100%)' }}/>
+          <div style={{ position:'absolute', bottom:0, right:0, width:'73%', height:'60%', background:'linear-gradient(220deg,#E8DABC,#D9C89A)', clipPath:'polygon(100% 100%,100% 0%,0% 100%)' }}/>
 
           {/* TOP FLAP */}
           <div style={{
@@ -273,12 +274,12 @@ function Envelope({ onOpen }: EnvelopeProps) {
             <div style={{
               width:70, height:70, borderRadius:'50%',
               background:`conic-gradient(from 0deg,${ROSE},${G1},${G2},${G1},${ROSE})`,
-              boxShadow:`0 3px 16px ${G1}60,inset 0 1px 3px rgba(255,255,255,0.35)`,
+              boxShadow:`0 3px 16px ${G1}60,inset 0 1px 3px rgba(241, 241, 192, 0.35)`,
               display:'flex', alignItems:'center', justifyContent:'center',
               position:'relative',
             }}>
-              <div style={{ position:'absolute', inset:5, borderRadius:'50%', border:`1px solid rgba(255,255,255,0.5)`, background:`radial-gradient(circle at 35% 35%,${G2},${G1})` }}/>
-              <span style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:20, fontWeight:600, color:'white', position:'relative', letterSpacing:'-1px' }}>I&M</span>
+              <div style={{ position:'absolute', inset:5, borderRadius:'50%', border:`1px solid rgba(160, 159, 187, 0.5)`, background:`radial-gradient(circle at 35% 35%,${G2},${G1})` }}/>
+              <span style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:20, fontWeight:600, color:'white', position:'relative', letterSpacing:'-1px' }}>B&R</span>
             </div>
           </div>
 
@@ -294,11 +295,9 @@ function Envelope({ onOpen }: EnvelopeProps) {
       {/* date */}
       <div style={{ marginTop:36, textAlign:'center', zIndex:2, position:'relative', opacity:envOp, transition:'opacity 0.5s' }}>
         <p style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:20, fontWeight:300, color:MUTED, letterSpacing:'5px', margin:0 }}>
-          17 · 06 · 2028
+          27 · 06 · 2026
         </p>
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:10, letterSpacing:'4px', textTransform:'uppercase', color:MUTED, opacity:0.6, margin:'8px 0 0' }}>
-          Zaghouan, Tunisie
-        </p>
+        
       </div>
     </div>
   );
@@ -370,7 +369,7 @@ function RSVPForm() {
           }}
         >Confirmer ma présence</button>
         <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:12, color:MUTED, textAlign:'center' as const, margin:0 }}>
-          Répondre avant le <strong style={{color:INK}}>1er Mai 2028</strong>
+          Répondre avant le <strong style={{color:INK}}>5 Jui 2026</strong>
         </p>
       </div>
     </div>
@@ -411,14 +410,14 @@ function WeddingPage() {
       <nav style={{
         position:'fixed', top:0, left:0, right:0, zIndex:100,
         padding: navScrolled ? '12px 44px' : '22px 44px',
-        background: navScrolled ? 'rgba(250,247,242,0.97)' : 'transparent',
+        background: navScrolled ? 'rgba(159, 151, 238, 0.97)' : 'transparent',
         backdropFilter: navScrolled ? 'blur(14px)' : 'none',
         borderBottom: navScrolled ? `1px solid ${BORDER}` : 'none',
         transition:'all 0.35s',
         display:'flex', alignItems:'center', justifyContent:'space-between',
       }}>
         <span style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:22, fontWeight:400, color:INK, letterSpacing:'0.04em' }}>
-          I <span style={{color:G1}}>&amp; </span>M
+          B<span style={{color:G1}}>&amp; </span>R
         </span>
         <div style={{ display:'flex', gap:32, alignItems:'center' }}>
           {navLinks.map(l=>(
@@ -482,8 +481,8 @@ function WeddingPage() {
               fontWeight:300, color:INK, margin:0,
               lineHeight:0.92, letterSpacing:'-0.02em',
             }}>
-              Iheb<br/>
-              <span style={{ fontStyle:'italic', color:G1, fontWeight:300 }}>& Marwa</span>
+              Bechir<br/>
+              <span style={{ fontStyle:'italic', color:G1, fontWeight:300 }}>& Roua</span>
             </h1>
           </FadeIn>
 
@@ -500,7 +499,7 @@ function WeddingPage() {
 
           <FadeIn delay={0.5}>
             <p style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:24, fontWeight:300, color:INK2, letterSpacing:'6px', marginBottom:44 }}>
-              17 Juin 2028
+              27 Juin 2026
             </p>
           </FadeIn>
 
@@ -533,132 +532,110 @@ function WeddingPage() {
       {/* ── COLOR BAND ── */}
       <div style={{ height:5, background:`linear-gradient(to right,${ROSE},${G1},${G2},${SAGE},${BLUE},${G1},${ROSE})` }}/>
 
-      {/* ── CEREMONY ── */}
+     {/* CEREMONY */}
       <section id="ceremony" style={{ padding:'108px 32px', background:CREAM }}>
         <div style={{ maxWidth:940, margin:'0 auto' }}>
-          <FadeIn><SectionTitle sub="La Cérémonie">Un moment inoubliable</SectionTitle></FadeIn>
-
+          <SectionTitle sub="La Cérémonie">Un moment inoubliable</SectionTitle>
+          
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:3, borderRadius:10, overflow:'hidden', boxShadow:'0 12px 56px rgba(44,36,23,0.12)', marginBottom:56 }}>
-            <FadeIn style={{ display:'contents' }}>
-              <VenuePhoto
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80"
-                alt="Salle de cérémonie" style={{ height:400 }}
-              />
-            </FadeIn>
-            <div style={{ background:`linear-gradient(150deg,${STONE},${STONE2})`, display:'flex', flexDirection:'column', justifyContent:'center', padding:'40px 48px' }}>
-              <FadeIn delay={0.15}>
-                <p style={{ fontSize:10, letterSpacing:'4px', textTransform:'uppercase', color:G1, marginBottom:16 }}>
-                  Salle des Fêtes de Zaghouan
-                </p>
-                <h3 style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:34, fontWeight:400, color:INK, lineHeight:1.15, margin:'0 0 22px' }}>
-                  Samedi<br/>17 Juin 2028
-                </h3>
-                <GoldLine width={70} my={0}/>
-                <div style={{ marginTop:26, display:'flex', flexDirection:'column', gap:16 }}>
-                  {[
-                    {icon:'◷', label:'Heure',   val:'16h00 précises',       color:ROSE},
-                    {icon:'◎', label:'Lieu',    val:'Salle des Fêtes de Zaghouan', color:G1},
-                    {icon:'✦', label:'Adresse', val:'Zaghouan, Tunisie',     color:SAGE},
-                  ].map(item=>(
-                    <div key={item.label} style={{ display:'flex', gap:14, alignItems:'flex-start' }}>
-                      <span style={{ color:item.color, fontSize:16, marginTop:2, flexShrink:0 }}>{item.icon}</span>
-                      <div>
-                        <p style={{ fontSize:9, letterSpacing:'2.5px', textTransform:'uppercase', color:MUTED, margin:0 }}>{item.label}</p>
-                        <p style={{ fontSize:15, color:INK, margin:'3px 0 0' }}>{item.val}</p>
-                      </div>
+            <VenuePhoto
+              src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80"
+              alt="Salle de cérémonie" style={{ height:400 }}
+            />
+            <div style={{ background:`linear-gradient(150deg,${STONE},${STONE2})`, padding:'40px 48px' }}>
+              <p style={{ fontSize:10, letterSpacing:'4px', textTransform:'uppercase', color:G1, marginBottom:16 }}>
+                Résidence la Haute Étoile
+              </p>
+              <h3 style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:34, fontWeight:400, color:INK, lineHeight:1.15 }}>
+                Samedi<br/>27 Juin 2026
+              </h3>
+              <div style={{ marginTop:56, display:'flex', flexDirection:'column', gap:16 }}>
+                {[
+                  {icon:'◷', label:'Heure', val:'15h00', color:ROSE},
+                  {icon:'◎', label:'Lieu', val:'Résidence la Haute Étoile', color:G1},
+                  {icon:'✦', label:'Adresse', val:'Salakta, Tunisie', color:SAGE},
+                ].map(item => (
+                  <div key={item.label} style={{ display:'flex', gap:14 }}>
+                    <span style={{ color:item.color, fontSize:16 }}>{item.icon}</span>
+                    <div>
+                      <p style={{ fontSize:9, letterSpacing:'2.5px', textTransform:'uppercase', color:MUTED }}>{item.label}</p>
+                      <p style={{ fontSize:15, color:INK }}>{item.val}</p>
                     </div>
-                  ))}
-                </div>
-              </FadeIn>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-
-          {/* quote */}
-          <FadeIn delay={0.1}>
-            <div style={{
-              textAlign:'center', padding:'52px 64px',
-              background:`linear-gradient(135deg,${STONE},${CREAM})`,
-              borderRadius:8,
-              borderTop:`3px solid transparent`,
-              borderImage:`linear-gradient(to right,${ROSE},${G1},${SAGE}) 1`,
-              position:'relative', overflow:'hidden',
-            }}>
-              <div style={{ position:'absolute', top:0, left:0, right:0, height:3, background:`linear-gradient(to right,${ROSE},${G1},${SAGE})` }}/>
-              <p style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:30, fontStyle:'italic', fontWeight:300, color:INK, lineHeight:1.55, margin:0 }}>
-                « L'amour ne se voit pas avec les yeux,<br/>mais avec l'âme. »
-              </p>
-              <p style={{ fontSize:11, color:MUTED, marginTop:20, letterSpacing:'2px' }}>— William Shakespeare</p>
-            </div>
-          </FadeIn>
         </div>
       </section>
 
-      {/* ── PROGRAMME ── */}
+      {/* PROGRAMME */}
       <section id="program" style={{ background:`linear-gradient(175deg,${STONE2} 0%,${STONE} 50%,${CREAM} 100%)`, padding:'108px 32px' }}>
         <div style={{ maxWidth:660, margin:'0 auto' }}>
-          <FadeIn><SectionTitle sub="Planning">Programme de la journée</SectionTitle></FadeIn>
+          <SectionTitle sub="Planning">Programme de la journée</SectionTitle>
           <div style={{ paddingLeft:10 }}>
             {[
-              {time:'14h30',title:'Accueil des invités',  desc:'Jus d\'accueil et animations dans le jardin',  icon:'🌸', color:SAGE, last:false},
-              {time:'16h00',title:'Cérémonie du mariage', desc:'Dans la grande salle de fêtes',               icon:'💍', color:G1,   last:false},
-              {time:'17h30',title:'Cocktail & Photos',    desc:'Vin d\'honneur et séance photos de groupe',    icon:'📷', color:ROSE, last:false},
-              {time:'20h00',title:'Dîner de gala',        desc:'Menu festif et animations musicales',          icon:'🥂', color:BLUE, last:false},
-              {time:'23h00',title:'Soirée dansante',      desc:'DJ & live music jusqu\'à l\'aube',             icon:'🎶', color:G2,   last:true},
+              {time:'15h00', title:'Zdek', desc:'Cérémonie du Zdek', icon:'🌸', color:SAGE, last:false},
+              {time:'16h00', title:'3ichwiya', desc:'Entrée en koftan, Zdek, puis changement de robe. Moment festif et chaleureux avec une touche 3echwiya.', icon:'💍', color:G1, last:false},
+              {time:'18h00', title:'Henna (Soirée précédente)', desc:'26 Juin 2026 - À partir de 18h à la Résidence la Haute Étoile', icon:'🎨', color:ROSE, last:true},
             ].map((item,i)=>(
-              <FadeIn key={i} delay={i*0.1}>
-                <TimelineItem {...item}/>
-              </FadeIn>
+              <TimelineItem key={i} {...item}/>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── LE LIEU ── */}
+      {/* VENUE */}
       <section id="venue" style={{ padding:'108px 32px', background:CREAM }}>
         <div style={{ maxWidth:980, margin:'0 auto' }}>
-          <FadeIn><SectionTitle sub="Le lieu de réception">Salle des Fêtes de Zaghouan</SectionTitle></FadeIn>
-
-          <FadeIn>
-            <VenuePhoto src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=80" alt="Vue extérieure" style={{ height:440, borderRadius:8, marginBottom:24, boxShadow:'0 16px 64px rgba(44,36,23,0.15)' }}/>
-          </FadeIn>
-
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:16, marginBottom:56 }}>
-            {[
-              { src:'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80', alt:'Salle de réception' },
-              { src:'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80', alt:'Jardins' },
-              { src:'https://images.unsplash.com/photo-1478146059778-26b13d8c6842?w=600&q=80', alt:'Banquet' },
-            ].map((img,i)=>(
-              <FadeIn key={i} delay={i*0.12}>
-                <VenuePhoto src={img.src} alt={img.alt} style={{ height:230, borderRadius:6 }}/>
-              </FadeIn>
-            ))}
+          <SectionTitle sub="Le lieu de réception">Résidence la Haute Étoile - Salakta</SectionTitle>
           </div>
+          <div style={{ display:'flex', justifyContent:'center', marginBottom:40 }}>
+         <VenuePhoto 
+            src="sal.jpg"  // Remplacez par l'URL de la photo que je vous ai fournie
+          
+            alt="Résidence la Haute Étoile - Entrée" 
+            style={{ height:500, borderRadius:12, marginBottom:32, boxShadow:'0 20px 80px rgba(0,0,0,0.18)' }} 
+          /></div>
+          <div style={{ display:'flex', justifyContent:'center', marginBottom:40 }}>
+          <VenuePhoto 
+            src="qr.jpg"  // Remplacez par l'URL de la photo que je vous ai fournie
+            
+            alt="Résidence la Haute Étoile - Entrée" 
+            style={{ height:200,width:200, borderRadius:12, marginBottom:32, boxShadow:'0 20px 20px rgba(0,0,0,0.18)', textAlign:'center' }} 
+          /></div>
 
-          {/* feature cards */}
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:20 }}>
-            {[
-              {icon:'🌿', title:'Zaghouan', desc:'Ville historique au pied du Djebel', color:SAGE},
-              {icon:'🎊', title:'500 invités', desc:'Grande capacité d\'accueil',       color:ROSE},
-              {icon:'🎵', title:'Live Music',  desc:'Orchestre & DJ toute la nuit',    color:BLUE},
-              {icon:'🚗', title:'Parking',    desc:'Stationnement gratuit sur place',  color:G1},
-            ].map((f,i)=>(
-              <FadeIn key={i} delay={i*0.1}>
-                <div style={{
-                  textAlign:'center', padding:'30px 16px',
-                  background:`linear-gradient(145deg,white,${STONE})`,
-                  borderRadius:8, border:`1px solid ${BORDER}`,
-                  borderTop:`3px solid ${f.color}`,
-                  boxShadow:'0 4px 20px rgba(44,36,23,0.06)',
-                }}>
-                  <div style={{ fontSize:30, marginBottom:14 }}>{f.icon}</div>
-                  <p style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:20, fontWeight:500, color:INK, margin:'0 0 6px' }}>{f.title}</p>
-                  <p style={{ fontSize:12, color:MUTED, margin:0, lineHeight:1.5 }}>{f.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
+          <div style={{ textAlign:'center', marginBottom:40 }}>
+            <p style={{ 
+              fontSize:15, 
+              color:MUTED, 
+              marginBottom:16,
+              fontWeight:500 
+            }}>
+              Résidence la Haute Étoile, Salakta
+            </p>
+
+          <p style={{ textAlign:'center', fontSize:15, color:MUTED, marginBottom:32 }}>
+           <a 
+              href="https://google.com/maps/place/929J%2BP8X+Résidence+la+Haute+Étoile,+Salakta" 
+              target="_blank" 
+              style={{ 
+                color:G1, 
+                fontSize:17, 
+                textDecoration:'underline', 
+                fontWeight:500,
+                display:'inline-block',
+                marginBottom:28
+              }}
+            >
+              📍 Voir sur Google Maps
+            </a>
+          </p>
         </div>
       </section>
+
+     
+     
 
       {/* ── GALLERY ── */}
       <section id="gallery" style={{ background:`linear-gradient(160deg,#1E1812,#2C2417)`, padding:'108px 32px' }}>
@@ -679,10 +656,10 @@ function WeddingPage() {
 
           <div style={{ display:'grid', gridTemplateColumns:'2fr 1fr 1fr', gridTemplateRows:'220px 220px', gap:6, borderRadius:8, overflow:'hidden' }}>
             <VenuePhoto src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80" alt="Salle principale" style={{ gridRow:'1/3' }}/>
-            <VenuePhoto src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Décoration" style={{}}/>
-            <VenuePhoto src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Détails" style={{}}/>
-            <VenuePhoto src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80" alt="Tables" style={{}}/>
-            <VenuePhoto src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" alt="Jardins" style={{}}/>
+            <VenuePhoto src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Décoration" style={{gridRow:'1/3'}}/>
+            
+           
+            <VenuePhoto src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" alt="Jardins" style={{gridRow:'1/3'}}/>
           </div>
         </div>
       </section>
@@ -711,7 +688,7 @@ function WeddingPage() {
                   background:`linear-gradient(145deg,white,${STONE})`,
                   borderRadius:8, border:`1px solid ${BORDER}`,
                   borderLeft:`4px solid ${card.color}`,
-                  boxShadow:'0 4px 20px rgba(44,36,23,0.06)',
+                  boxShadow:'0 4px 20px rgba(207, 188, 188, 0.06)',
                 }}>
                   <span style={{ color:card.color, fontSize:22 }}>{card.icon}</span>
                   <h3 style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:26, fontWeight:500, color:INK, margin:'12px 0' }}>{card.title}</h3>
@@ -732,7 +709,7 @@ function WeddingPage() {
           <FadeIn><SectionTitle sub="Confirmer votre présence" accent={ROSE}>Répondre à l'invitation</SectionTitle></FadeIn>
           <FadeIn delay={0.1}>
             <p style={{ fontSize:15, color:MUTED, marginBottom:48, lineHeight:1.75 }}>
-              Merci de nous confirmer votre présence avant le <strong style={{color:INK}}>1er Mai 2028</strong>.<br/>
+              Merci de nous confirmer votre présence avant le <strong style={{color:INK}}>5 Juin 2026</strong>.<br/>
               Votre réponse nous aidera à préparer ce beau jour.
             </p>
           </FadeIn>
@@ -750,12 +727,11 @@ function WeddingPage() {
           ))}
         </div>
         <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:44, fontWeight:300, color:CREAM, margin:'0 0 10px', letterSpacing:'0.04em' }}>
-          Iheb <span style={{color:G1}}>&amp;</span> Marwa
+         Bechir <span style={{color:G1}}>&amp;</span> Roua
         </h2>
-        <p style={{ color:MUTED, fontSize:13, letterSpacing:'4px', marginBottom:28 }}>17 · 06 · 2028</p>
+        <p style={{ color:MUTED, fontSize:13, letterSpacing:'4px', marginBottom:28 }}>27 · 06 · 2026</p>
         <GoldLine color={G1}/>
-        <p style={{ color:MUTED, fontSize:13, marginTop:24 }}>Salle des Fêtes de Zaghouan — Zaghouan, Tunisie</p>
-        <p style={{ color:MUTED, fontSize:11, marginTop:10, opacity:0.55 }}>contact@ihebetmarwa.tn</p>
+        
       </footer>
 
       <style>{`
