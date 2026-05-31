@@ -671,7 +671,7 @@ function WeddingPage() {
       <section style={{ padding:'108px 32px', background:CREAM }}>
         <div style={{ maxWidth:920, margin:'0 auto' }}>
           <FadeIn><SectionTitle sub="Informations pratiques">Tout ce qu'il faut savoir</SectionTitle></FadeIn>
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:28 }}>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:19 }}>
             {[
               { title:'Tenue de soirée', icon:'✦', color:ROSE,
                 content:"Tenue de soirée recommandée. Merci d'éviter le blanc." },
